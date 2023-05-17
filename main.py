@@ -16,6 +16,7 @@ aggregate_data()
 from get_stats import get_stats
 from sales_by_drink import get_sales_by_drink
 from sales_by_type import get_sales_by_type
+from sales_by_brand import get_sales_by_brand
 
 if __name__ == '__main__':
     if path.exists('workbooks/aggregated/aggregated_data.xlsx'):
@@ -23,6 +24,7 @@ if __name__ == '__main__':
         print(get_stats())
         print(get_sales_by_drink())
         print(get_sales_by_type())
+        print(get_sales_by_brand())
     else:
         print('Database does not exist')
 

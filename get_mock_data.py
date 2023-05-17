@@ -14,7 +14,7 @@ def get_mock_data():
         sheet = wb.active
 
         # Header row
-        sheet.append(['Sales Amount', 'Drink Name','Drink Type', 'Drink Price'])
+        sheet.append(['Sales Amount', 'Drink Name','Drink Type', 'Brand', 'Drink Price'])
 
         # Generate mock sales data
         for _ in range(200):
@@ -22,8 +22,9 @@ def get_mock_data():
             sales_amount = random.randint(100, 600)
             drink_name = random_drink['drink_name']
             drink_type = random_drink['drink_type']
+            drink_brand = random_drink['brand']
             drink_price = random.randint(8, 14)
-            sheet.append([sales_amount, drink_name, drink_type, drink_price])
+            sheet.append([sales_amount, drink_name, drink_type, drink_brand, drink_price])
 
         wb.save(f'workbooks/{restaurant_path}_mock_sales_data.xlsx')
         wb.close()

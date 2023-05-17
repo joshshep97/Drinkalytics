@@ -1,6 +1,6 @@
 from openpyxl import Workbook
-import pandas as pd
 from extensions import df
+import calendar
 
 def get_sales_by_type():
     sales_by_drink_type = df.groupby('Drink Type')['Sales Amount'].sum().sort_values(ascending=False)
@@ -18,6 +18,6 @@ def get_sales_by_type():
         sheet.append([drink_type, drink_sales])
 
     # Save the workbook
-    by_type_workbook.save('workbooks/aggregated/mock_analysis_by_type.xlsx')
+    by_type_workbook.save(f'workbooks/aggregated/sales_by_type_{calendar.month_name.lower()}.xlsx')
     # Close the workbook
     by_type_workbook.close()
